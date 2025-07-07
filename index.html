@@ -1,13 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Charity Water Game</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <title>Water Village</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Welcome to the Charity Water Game Prototype</h1>
-    <script src="script.js"></script>
+  <!-- Decorative Clouds for a lively background -->
+  <div class="cloud" style="top: 40px; left: 80px;"></div>
+  <div class="cloud" style="top: 100px; left: 400px;"></div>
+  <div class="cloud" style="top: 60px; left: 700px;"></div>
+
+  <!-- Splash Screen -->
+  <div id="splash-screen">
+    <img src="img/logo.png" alt="Charity: Water Logo" class="logo">
+    <h1>WATER VILLAGE</h1>
+    <button id="start-btn">Start Game</button>
+  </div>
+
+  <!-- Game UI -->
+  <div id="game-ui" style="display: none;">
+    <div id="top-bar">
+      <img src="img/logo.png" class="top-logo" />
+      <span class="title">WATER VILLAGE</span>
+      <div id="score-ui">
+        <img src="img/drop-icon.png" class="drop-icon">
+        <span id="water-count">0</span>
+      </div>
+      <button id="reset-btn">RESET</button>
+    </div>
+
+    <div id="village-area"></div>
+
+    <button id="build-btn">BUILD</button>
+    <button id="upgrade-btn">UPGRADE</button>
+    <div id="feedback-message"></div>
+  </div>
+
+  <!-- Win Modal -->
+  <div id="modal" style="display: none;">
+    <div id="modal-message">
+      <h2>You’ve helped build a thriving water village!</h2>
+      <button id="modal-close">Close</button>
+    </div>
+  </div>
+
+  <script src="script.js" defer></script>
 </body>
 </html>
