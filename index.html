@@ -4,38 +4,55 @@
   <meta charset="UTF-8">
   <title>Water Village</title>
   <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:700,900&display=swap" rel="stylesheet">
 </head>
 <body>
+  <!-- Cartoon-style River placed in the center of the game -->
+  <div id="river-container">
+    <img src="img/river-cartoon-long.svg" alt="Cartoon River" id="river-img">
+  </div>
   <!-- Decorative Clouds for a lively background -->
   <div class="cloud" style="top: 40px; left: 80px;"></div>
   <div class="cloud" style="top: 100px; left: 400px;"></div>
   <div class="cloud" style="top: 60px; left: 700px;"></div>
 
+
   <!-- Splash Screen -->
   <div id="splash-screen">
-    <img src="img/logo.png" alt="Charity: Water Logo" class="logo">
+    <div class="splash-logo-bg">
+    <div class="logo-box">
+      <img src="img/logo.png" alt="Charity: Water Logo" class="logo">
+    </div>
+    </div>
     <h1>WATER VILLAGE</h1>
     <button id="start-btn">Start Game</button>
+    <!-- Animated water droplet transition overlay -->
+    <div id="droplet-transition"></div>
   </div>
 
   <!-- Game UI -->
   <div id="game-ui" style="display: none;">
+
     <div id="top-bar">
-      <img src="img/logo.png" class="top-logo" />
+      <img src="img/water-can-transparent.png" class="top-logo" />
       <span class="title">WATER VILLAGE</span>
       <div id="score-ui">
         <img src="img/drop-icon.png" class="drop-icon">
         <span id="water-count">0</span>
       </div>
+      <button id="build-btn">BUILD</button>
+      <button id="upgrade-btn">UPGRADE</button>
       <button id="reset-btn">RESET</button>
     </div>
 
-    <div id="village-area"></div>
+    <div id="village-area">
+      <!-- Village wall as a CSS background, always visible -->
+    </div>
 
-    <button id="build-btn">BUILD</button>
-    <button id="upgrade-btn">UPGRADE</button>
     <div id="feedback-message"></div>
   </div>
+
+
 
   <!-- Win Modal -->
   <div id="modal" style="display: none;">
