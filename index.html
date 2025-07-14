@@ -17,6 +17,35 @@
   <div class="cloud" style="top: 60px; left: 700px;"></div>
 
 
+  <!-- Game Rules Modal (shown before difficulty selection) -->
+  <div id="rules-modal" style="display: none;">
+    <div id="rules-modal-content">
+      <img src="img/logo.png" alt="Charity: Water Logo" class="rules-logo">
+      <h2 class="rules-title">Water Village: A Charity: Water Game</h2>
+      <div class="rules-body">
+        <ul>
+          <li>Build and upgrade huts and wells</li>
+          <li>Collect water drops that spawn every 5 minutes</li>
+          <li>Don't build structures on top of each other or on top of trees</li>
+          <li>Use wells to generate water drops every 2 minutes</li>
+        </ul>
+        <div class="rules-difficulty">
+          <strong>Difficulty Modes:</strong>
+          <ul>
+            <li><span style="color:#005baa;">Easy</span>: Wells produce <b>15 drops</b> every 2 minutes</li>
+            <li><span style="color:#005baa;">Normal</span>: <b>8 drops</b> every 2 minutes</li>
+            <li><span style="color:#005baa;">Hard</span>: <b>4 drops</b> every 2 minutes</li>
+          </ul>
+        </div>
+        <div class="rules-prompt" style="margin-top:18px;">
+          <b>Please type 'Easy', 'Normal', or 'Hard' to begin.</b>
+        </div>
+        <input id="difficulty-input" type="text" placeholder="Easy, Normal, or Hard" autocomplete="off" style="margin-top:14px; font-size:1.1em; padding:8px; border-radius:6px; border:1px solid #ccc; width:80%;">
+        <button id="rules-modal-btn" style="margin-top:18px; background:#f9d342; color:#005baa; font-weight:bold; border:none; border-radius:8px; padding:10px 24px; font-size:1.1em; cursor:pointer;">Start Game</button>
+      </div>
+    </div>
+  </div>
+
   <!-- Splash Screen -->
   <div id="splash-screen">
     <div class="splash-logo-bg">
@@ -62,6 +91,17 @@
     </div>
   </div>
 
+  <!-- Charity: Water Branded Footer -->
+<footer id="cw-footer">
+  <div class="footer-content">
+    <img src="img/logo.png" alt="Charity: Water Logo" class="footer-logo">
+    <span class="footer-title">Water Village &middot; Powered by Charity: Water</span>
+    <div class="footer-links">
+      <a href="https://www.charitywater.org/" target="_blank" rel="noopener" class="footer-link">Learn More</a>
+      <a href="https://www.charitywater.org/donate" target="_blank" rel="noopener" class="footer-link donate">Donate Now</a>
+    </div>
+  </div>
+</footer>
   <script src="script.js" defer></script>
 </body>
 </html>

@@ -86,6 +86,7 @@ body {
   background: linear-gradient(135deg, #f9d342 0%, #fff 100%);
   z-index: 5;
   min-height: 100vh;
+  padding-bottom: 64px; /* Add space between Start button and footer */
 }
 
 #splash-screen .logo {
@@ -180,6 +181,10 @@ body {
   cursor: pointer;
 }
 
+.villager.controllable {
+  z-index: 5;
+}
+
 /* --- UI Buttons --- */
 #build-btn, #upgrade-btn, #reset-btn, #start-btn, #modal-message button {
   font-family: 'Montserrat', sans-serif;
@@ -268,6 +273,33 @@ body {
   z-index: 2;
 }
 
+/* --- Collectible Drops --- */
+.collectible-drop {
+  position: absolute;
+  width: 48px;
+  height: 48px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  z-index: 4;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+.collectible-drop:hover {
+  transform: scale(1.18) rotate(-10deg);
+}
+
+/* --- Bridge styling --- */
+#bridge {
+  position: absolute;
+  width: 40px;
+  height: 58px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  z-index: 10;
+  pointer-events: none;
+  display: none;
+}
+
 /* --- Responsive Layout --- */
 @media (max-width: 700px) {
   #top-bar {
@@ -353,4 +385,228 @@ body {
   #splash-screen .logo { width: 80px; }
   #splash-screen h1 { font-size: 1em; }
   #village-area { min-height: 180px; }
+}
+
+/* Game Rules Modal Styles */
+#rules-modal {
+  position: fixed;
+  top: 0; left: 0; width: 100vw; height: 100vh;
+  background: rgba(0,91,170,0.12);
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: rules-fade-in 0.7s;
+}
+
+@keyframes rules-fade-in {
+  from { opacity: 0; transform: scale(0.96);}
+  to { opacity: 1; transform: scale(1);}
+}
+
+#rules-modal-content {
+  background: #fffaf0;
+  border: 6px solid #f9d342;
+  border-radius: 24px;
+  box-shadow: 0 8px 32px rgba(0,91,170,0.12), 0 2px 8px #f9d342;
+  padding: 36px 32px 28px 32px;
+  max-width: 420px;
+  width: 90vw;
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+  animation: rules-fade-in 0.7s;
+}
+
+.rules-logo {
+  width: 90px;
+  margin-bottom: 12px;
+  filter: drop-shadow(0 2px 8px #005baa22);
+}
+
+.rules-title {
+  font-size: 1.6em;
+  font-weight: 900;
+  color: #005baa;
+  margin-bottom: 18px;
+  letter-spacing: 1px;
+}
+
+.rules-body ul {
+  text-align: left;
+  margin: 0 0 12px 0;
+  padding-left: 18px;
+  font-size: 1.08em;
+  color: #005baa;
+}
+
+.rules-difficulty {
+  margin: 12px 0 0 0;
+  font-size: 1.08em;
+}
+
+.rules-prompt {
+  font-size: 1.13em;
+  color: #005baa;
+  margin-top: 10px;
+}
+
+/* Charity: Water Footer Styles */
+#cw-footer {
+  width: 100vw;
+  background: #005baa;
+  color: #fff;
+  font-family: 'Montserrat', sans-serif;
+  padding: 18px 0 14px 0;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  z-index: 50;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 -2px 12px rgba(0,91,170,0.08);
+}
+
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100vw;
+  max-width: 600px;
+}
+
+.footer-logo {
+  width: 48px;
+  height: 48px;
+  margin-bottom: 6px;
+  filter: drop-shadow(0 2px 8px #f9d34244);
+}
+
+.footer-title {
+  font-weight: 900;
+  font-size: 1.08em;
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+  text-align: center;
+}
+
+.footer-links {
+  display: flex;
+  gap: 18px;
+  margin-top: 4px;
+}
+
+.footer-link {
+  color: #fff;
+  background: #005baa;
+  border: 2px solid #f9d342;
+  border-radius: 8px;
+  font-weight: bold;
+  text-decoration: none;
+  padding: 8px 18px;
+  transition: background 0.2s, color 0.2s;
+  font-size: 1em;
+  outline: none;
+}
+
+.footer-link:hover,
+.footer-link:focus {
+  background: #f9d342;
+  color: #005baa;
+}
+
+.footer-link.donate {
+  background: #f9d342;
+  color: #005baa;
+  border: 2px solid #f9d342;
+}
+
+.footer-link.donate:hover,
+.footer-link.donate:focus {
+  background: #fff;
+  color: #005baa;
+  border-color: #f9d342;
+}
+
+@media (max-width: 600px) {
+  .footer-content {
+    max-width: 98vw;
+    padding: 0 2vw;
+  }
+  .footer-links {
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    align-items: center;
+  }
+  .footer-link, .footer-link.donate {
+    width: 90vw;
+    text-align: center;
+    font-size: 1em;
+    padding: 10px 0;
+  }
+}
+
+/* Custom Modal for Build/Upgrade Prompts */
+#custom-modal {
+  position: fixed;
+  top: 0; left: 0; width: 100vw; height: 100vh;
+  background: rgba(0,91,170,0.14);
+  z-index: 300;
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+
+.custom-modal-content {
+  background: #fffaf0;
+  border: 6px solid #f9d342;
+  border-radius: 22px;
+  box-shadow: 0 8px 32px rgba(0,91,170,0.12), 0 2px 8px #f9d342;
+  padding: 32px 28px 24px 28px;
+  max-width: 340px;
+  width: 90vw;
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+  animation: rules-fade-in 0.7s;
+}
+
+.custom-modal-title {
+  font-size: 1.3em;
+  font-weight: 900;
+  color: #005baa;
+  margin-bottom: 12px;
+  letter-spacing: 1px;
+}
+
+.custom-modal-message {
+  font-size: 1.08em;
+  color: #005baa;
+  margin-bottom: 18px;
+}
+
+.custom-modal-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.custom-modal-btn {
+  background: #f9d342;
+  color: #005baa;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 0;
+  font-size: 1.08em;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+  box-shadow: 0 2px 8px #005baa22;
+}
+
+.custom-modal-btn:hover,
+.custom-modal-btn:focus {
+  background: #005baa;
+  color: #fffaf0;
 }
